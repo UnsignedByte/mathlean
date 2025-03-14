@@ -1,3 +1,4 @@
+
 class Group (G: Type u) extends Mul G where
   id: G
   mul_assoc: ∀ a b c: G, a * (b * c) = (a * b) * c
@@ -6,7 +7,7 @@ class Group (G: Type u) extends Mul G where
   mul_inv: ∀ a: G, ∃ a₁: G, a * a₁ = id
   inv_mul: ∀ a: G, ∃ a₁: G, a₁ * a = id
 
-
+namespace Group
 private theorem inverse_commutative_l (G: Type u) [Group G] : ∀ {g h: G}, g * h = Group.id → h * g = Group.id := by
   intros g h
   intro lhs
@@ -47,3 +48,5 @@ theorem inverse_unique (G: Type u) [Group G] : ∀ {g a b: G}, a * g = Group.id 
   rw [left_prec, right_prec] at associative
   rw [Group.mul_id l, Group.id_mul r] at associative
   contradiction
+
+end Group

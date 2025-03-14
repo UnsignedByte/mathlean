@@ -19,21 +19,24 @@ instance : Group GInt where
   id := 0
   mul_assoc := by
     intros a b c
-    simp[]
+    repeat rw [mul_add]
+    repeat rw [Int.add_def]
     rw [Int.add_assoc]
   mul_id := by
     intro a
-    simp[]
+    rw [mul_add, Int.add_def]
+    rw [Int.add_zero]
   id_mul := by
     intro a
-    simp[]
+    rw [mul_add, Int.add_def]
+    rw [Int.zero_add]
   mul_inv := by
     intros a
     exists -a
-    simp[]
+    rw [mul_add, Int.add_def]
     rw [Int.add_right_neg]
   inv_mul := by
     intro a
     exists -a
-    simp[]
+    rw [mul_add, Int.add_def]
     rw [Int.add_left_neg]
