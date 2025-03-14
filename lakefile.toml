@@ -1,0 +1,10 @@
+name = "mathlean"
+version = "0.1.0"
+defaultTargets = ["mathlean"]
+
+[[lean_lib]]
+name = "Mathlean"
+
+[[lean_exe]]
+name = "mathlean"
+root = "Main"
